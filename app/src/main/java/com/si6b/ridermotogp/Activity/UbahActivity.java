@@ -11,15 +11,17 @@ import com.si6b.ridermotogp.R;
 public class UbahActivity extends AppCompatActivity {
     private int yId;
     private String yNama, yNomor, yNegara, ySponsor;
-    private EditText etNama, etNomor, etNegara, etSponsor;
+    private EditText etNama, etNomor, etSponsor, etNegara;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ubah);
 
+        initView();
+
         Intent tangkap = getIntent();
-        yId = tangkap.getIntExtra("xId",-1);
+        yId = tangkap.getIntExtra("xId", -1);
         yNama = tangkap.getStringExtra("xNama");
         yNomor = tangkap.getStringExtra("xNomor");
         yNegara = tangkap.getStringExtra("xNegara");
@@ -27,14 +29,15 @@ public class UbahActivity extends AppCompatActivity {
 
         etNama.setText(yNama);
         etNomor.setText(yNomor);
-        etNegara.setText(yNegara);
         etSponsor.setText(ySponsor);
+        etNegara.setText(yNegara);
+    }
 
-
-            etNama = findViewById(R.id.et_nama);
-            etNomor = findViewById(R.id.et_nomor);
-            etNegara = findViewById(R.id.et_sponsor);
-            etSponsor = findViewById(R.id.et_sponsor);
+    private void initView(){
+        etNama = findViewById(R.id.et_nama);
+        etNomor = findViewById(R.id.et_nomor);
+        etSponsor = findViewById(R.id.et_sponsor);
+        etNegara = findViewById(R.id.et_negara);
 
         }
     }
